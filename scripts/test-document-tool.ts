@@ -108,7 +108,7 @@ async function main() {
   const { tools } = await client.listTools();
   const doc = tools.find((t) => t.name === "opendart_get_document");
   check("tool registered", !!doc, true);
-  check("tool count", tools.length, 84);
+  check("tool count", tools.length, 85);
   check(
     "params",
     Object.keys(doc!.inputSchema.properties ?? {}).sort(),

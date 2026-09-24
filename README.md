@@ -6,7 +6,8 @@ API를 발급받아 Claude 커스텀 커넥터로 바로 연결할 수 있습니
 
 ## Features
 
-- **Open DART API 전부 지원**: Open DART에서 제공하는 API(84개)를 전부 지원합니다.
+- **Open DART API 전부 지원**: Open DART에서 제공하는 API를 전부 지원합니다 (도구 85개).
+- **2국면 스크리닝**: 최대 500종목의 TTM 매출·영업이익 증가율을 서버에서 계산해 회사당 한 줄로 판정합니다 (`opendart_phase2_screen`).
 - **공시 원문 조회**: 사업보고서 등 원문(document.xml)을 목차/섹션 단위로 나눠서 읽습니다.
 - **Vercel 배포**: ngrok/터널링 없이 커스텀 커넥터로 바로 연결 가능합니다.
 - **URL 기반 API 키**: 커넥터 URL에 키를 포함하여 설정 없이 즉시 사용 가능합니다.

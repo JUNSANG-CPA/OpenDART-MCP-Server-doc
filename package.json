@@ -11,6 +11,7 @@
     "test:financial": "tsx scripts/test-financial-format.ts",
     "test:client": "tsx scripts/test-client-retry.ts",
     "test:defense": "tsx scripts/test-defense.ts",
+    "test:phase2": "tsx scripts/test-phase2-screen.ts",
     "debug:document": "tsx scripts/debug-document-raw.ts",
     "debug:api": "tsx scripts/debug-api-raw.ts",
     "probe:doc": "tsx scripts/probe-document-availability.ts"

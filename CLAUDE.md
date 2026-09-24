@@ -75,6 +75,7 @@
 | 전체 재무제표 (BS/IS/CF 모든 항목) | `opendart_full_financial_statement` | |
 | 여러 회사 재무 비교 (최대 100개) | `opendart_multi_financial_accounts` | corp_code를 콤마로 구분 |
 | 수익성/안정성/성장성 지표 | `opendart_single_financial_index` | |
+| 여러 종목 2국면(TTM 영업이익 증가율 > 매출 증가율) 전환 판정 | `opendart_phase2_screen` | items에 종목명·종목코드·corp_code 혼용, 최대 500 |
 | 여러 회사 지표 비교 | `opendart_multi_financial_index` | |
 | XBRL 계정 분류 체계 | `opendart_xbrl_taxonomy` | sj_div: BS1, IS1, CF1 등 |
 | 배당 정보 | `opendart_dividend_info` | |

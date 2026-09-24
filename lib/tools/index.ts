@@ -11,6 +11,7 @@ import { registerShareholdingTools } from "./shareholding";
 import { registerMajorEventTools } from "./major-events";
 import { registerSecuritiesRegTools } from "./securities-reg";
 import { registerWorkflowTools } from "./workflows";
+import { registerPhase2Screen } from "./phase2-screen";
 
 function registerConfigTools(server: McpServer) {
   server.tool(
@@ -116,6 +117,7 @@ export function registerAllTools(server: McpServer) {
   registerShareholdingTools(server);   // Shareholding disclosures
   registerMajorEventTools(server);     // Major corporate events
   registerSecuritiesRegTools(server);  // Securities registration statements
+  registerPhase2Screen(server);        // Multi-company phase-2 (TTM) screen
 
   // After every tool is registered, so the wrapped handler exists.
   installParamGuard(server);

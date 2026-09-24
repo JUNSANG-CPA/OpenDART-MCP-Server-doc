@@ -149,6 +149,35 @@ function sortByListed(entries: CorpCodeEntry[]): CorpCodeEntry[] {
   });
 }
 
+export interface ListedCorpIndex {
+  byCorp: Map<string, { name: string; stock: string }>;
+  byStock: Map<string, string>;
+  /** Exact name → corp_codes; more than one entry means the name is ambiguous */
+  byName: Map<string, string[]>;
+}
+
+let listedIndex: ListedCorpIndex | null = null;
+
+/**
+ * Listed companies only, keyed for exact lookups by corp_code, stock code and
+ * name. Built once from the bundled corp-code file (rebuilt weekly by CI), so
+ * callers never have to download the 3.4MB registry at request time.
+ */
+export function getListedCorpIndex(): ListedCorpIndex {
+  if (listedIndex) return listedIndex;
+  const c = initCache();
+  const byCorp = new Map<string, { name: string; stock: string }>();
+  const byStock = new Map<string, string>();
+  const byName = new Map<string, string[]>();
+  for (const e of c.entries) {
+    if (!e.stock_code) continue;
+    byCorp.set(e.corp_code, { name: e.corp_name, stock: e.stock_code });
+    byStock.set(e.stock_code, e.corp_code);
+    byName.set(e.corp_name, [...(byName.get(e.corp_name) ?? []), e.corp_code]);
+  }
+  return (listedIndex = { byCorp, byStock, byName });
+}
+
 /**
  * Resolve corp_codes to names. Multi-company endpoints return codes only, so
  * without this a comparison table can't say which row is which company.
