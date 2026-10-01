@@ -84,3 +84,4 @@ jobs:
           # Explicit refspec: a bare `git push` fails on a detached HEAD, and
           # this path only ever runs on a week when the data actually changed.
           git push origin "HEAD:${GITHUB_REF_NAME}"
+
